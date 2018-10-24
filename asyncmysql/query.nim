@@ -24,7 +24,7 @@ proc dbFormat(formatstr: string, args: varargs[string]): string =
   var a = 0
   for c in items(formatstr):
     if c == '?':
-      if args[a] == nil:
+      if args[a].len == 0:
         add(result, "NULL")
       else:
         add(result, dbQuote(args[a]))
